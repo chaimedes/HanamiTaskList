@@ -1,0 +1,4 @@
+project=tasklist
+architecture=container
+test=minitest
+template=erb

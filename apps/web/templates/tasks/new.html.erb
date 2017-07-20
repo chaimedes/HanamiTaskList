@@ -1,0 +1,30 @@
+<h2>Add task</h2>
+
+<% unless params.valid? %>
+  <div class="errors">
+    <h3>There was a problem adding a new task.</h3>
+    <ul>
+      <% params.error_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%=
+  form_for :task, '/tasks' do
+    div class: 'input' do
+      label :title
+      text_field :title
+    end
+
+    div class: 'input' do
+      label :description
+      text_field :description
+    end
+
+    div class: 'controls' do
+      submit 'Create Task'
+    end
+  end
+%>

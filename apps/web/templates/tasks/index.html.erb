@@ -1,0 +1,13 @@
+<h2>All Items</h2>
+<% if tasks.any? %>
+  <div id="tasks">
+    <% tasks.each do |task| %>
+      <div class="task">
+        <h3><%= task.title %></h3>
+        <p><%= task.description %></p>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="placeholder">There are currently no tasks. Congratulations!</p>
+<% end %>
