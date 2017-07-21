@@ -1,9 +1,11 @@
 <h2>All Items</h2>
+<%= render partial: 'new_task_button' %>
 <% if tasks.any? %>
   <div id="tasks">
     <% tasks.each do |task| %>
       <div class="task">
         <h3><%= task.title %></h3>
+        <%= render partial: 'delete_task_button', locals: {task: task} %>
         <p><%= task.description %></p>
       </div>
     <% end %>

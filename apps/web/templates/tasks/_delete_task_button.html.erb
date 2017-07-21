@@ -1,0 +1,5 @@
+<%=
+  form_for :task, routes.delete_path(task.id), method: :delete, namespace: "delete#{task.id}", class: "delete_task" do
+    submit 'Delete'
+  end
+%>

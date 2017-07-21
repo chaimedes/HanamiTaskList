@@ -3,8 +3,12 @@
   <head>
     <title>Task List</title>
     <%= favicon %>
+    <%= javascript 'jquery-3.2.1.min' %>
+    <%= javascript 'bootstrap.min' %>
+    <%= stylesheet 'bootstrap' %>
+    <%= stylesheet 'custom' %>
   </head>
-  <body>
+  <body class="container">
     <h1>Task List</h1>
     <%= yield %>
   </body>
