@@ -9,7 +9,7 @@ class TaskRepository < Hanami::Repository
   def search(string)
     binding.pry
     tasks
-      .where { "title LIKE 'string'" }
+      .where { Sequel.lit("UPPER(title) LIKE UPPER('%#{string.raw["task"]["title"]}%') OR UPPER(description) LIKE UPPER('%#{string.raw["task"]["description"]}%')") }
       .order(:importance)
       .to_a
   end

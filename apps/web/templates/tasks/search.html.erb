@@ -6,8 +6,8 @@
     <% tasks.each do |task| %>
       <div class="task level-<%= task.importance %>">
         <h3><%= task.title %></h3>
-        <p><%= task.description %></p>
         <%= render partial: 'delete_task_button', locals: {task: task} %>
+        <p><%= task.description %></p>
       </div>
     <% end %>
   </div>
