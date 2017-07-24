@@ -7,7 +7,8 @@ module Web::Controllers::Tasks
     params do
       required(:task).schema do
         required(:title).filled(:str?)
-        optional(:description).filled(:str?)
+        required(:importance).filled(:int?)
+        optional(:description)
       end
     end
 

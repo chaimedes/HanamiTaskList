@@ -1,11 +1,12 @@
 module Web::Controllers::Tasks
-  class Index
+  class Search
     include Web::Action
 
     expose :tasks
 
     def call(params)
-      @tasks = TaskRepository.new.by_importance
+      @tasks = TaskRepository.new.search(params)
+      redirect_to routes.tasks_path
     end
   end
 end

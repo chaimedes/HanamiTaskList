@@ -1,9 +1,10 @@
-<h2>All Items</h2>
-<%= render partial: 'new_task_button' %>
+<!-- <h2>All Items</h2> -->
+<%= render partial: 'search_tasks' %>
 <% if tasks.any? %>
   <div id="tasks">
+    <%= render partial: 'new_task_button' %>
     <% tasks.each do |task| %>
-      <div class="task">
+      <div class="task level-<%= task.importance %>">
         <h3><%= task.title %></h3>
         <%= render partial: 'delete_task_button', locals: {task: task} %>
         <p><%= task.description %></p>

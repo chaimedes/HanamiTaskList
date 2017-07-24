@@ -23,6 +23,11 @@
       text_field :description
     end
 
+    div class: 'input' do
+      label :importance
+      number_field :importance
+    end
+
     div class: 'controls' do
       submit 'Create Task'
     end

@@ -1,0 +1,55 @@
+body {
+  background: #112;
+  color: #fff;
+}
+header {
+  width: 100;
+  text-align: center;
+  background: #223;
+  padding: 20px 0px;
+  box-shadow: 0px 0px 3px 1px #000;
+  margin-bottom: 40px;
+}
+#wrapper {
+}
+#tasks {
+  margin-top: 40px;
+}
+button {
+  color: #222;
+}
+.task h3 {
+  display: inline-block;
+}
+.task {
+  padding: 20px 16px;
+  margin: 0px 0px;
+  margin-bottom: 4px;
+  color: #222;
+  min-height: 7em;
+}
+.task button {
+  font-size: 24px;
+  line-height: 1;
+  padding: 0px 2px;
+  margin-left: 4px;
+}
+.task.level-0 { /* I.E. Not created yet. */
+  background: rgba(255, 255, 255, 0.7);
+  padding-top: 2em;
+}
+.task.level-1 {
+  background: #f42;
+}
+.task.level-2 {
+  background: #fc5;
+}
+.task.level-3 {
+  background: #3d3;
+}
+.delete_task {
+  display: inline-block;
+}
+.delete_task button {
+  vertical-align: calc(10%);
+}

@@ -1,0 +1,10 @@
+<%=
+  form_for :task, '/tasks/search', method: :post do
+    div class: 'search' do
+      search_field :title
+    end
+    div class: 'search-submit' do
+      submit 'Search'
+    end
+  end
+%>
