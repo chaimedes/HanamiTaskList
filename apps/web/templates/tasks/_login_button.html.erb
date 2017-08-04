@@ -1,0 +1,12 @@
+<%=
+  form_for :user, routes.login_path, method: :post do
+    div class: 'input' do
+      label :identifier
+      text_field :identifier
+    end
+
+    div class: 'controls' do
+      submit 'Get Started'
+    end
+  end
+%>

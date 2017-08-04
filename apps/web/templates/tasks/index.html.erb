@@ -1,16 +1,31 @@
 <!-- <h2>All Items</h2> -->
-<%= render partial: 'search_tasks' %>
-<% if tasks.any? %>
-  <div id="tasks">
-    <%= render partial: 'new_task_button' %>
-    <% tasks.each do |task| %>
-      <div class="task level-<%= task.importance %>">
-        <h3><%= task.title %></h3>
-        <p><%= task.description %></p>
-        <%= render partial: 'delete_task_button', locals: {task: task} %>
-      </div>
-    <% end %>
-  </div>
+<% if session[:logged_in] %>
+  <%= render partial: 'search_tasks' %>
+  <% if tasks.any? %>
+    <div id="tasks">
+      <%= render partial: 'new_task_button' %>
+      <% tasks.each do |task| %>
+        <div class="task level-<%= task.importance %>">
+          <h3><%= task.title %></h3>
+          <p><%= task.description %></p>
+          <%= render partial: 'delete_task_button', locals: {task: task} %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="placeholder">There are currently no tasks. Congratulations!</p>
+  <% end %>
 <% else %>
-  <p class="placeholder">There are currently no tasks. Congratulations!</p>
+  <% if !params[:identifier] %>
+    <h2>Simplicity for the dedicated.</h2>
+    <%= render partial: 'user_button' %>
+  <% end %>
+  <% if params[:identifier] %>
+    <p class="new_user_identifier">
+      <h2>You're all set up!</h2><br />
+      Your new ID is <strong><%= params[:identifier] %>.</strong><br />
+      You can now log in.
+    </p>
+  <% end %>
+  <%= render partial: 'login_button' %>
 <% end %>

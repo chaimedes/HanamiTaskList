@@ -71,7 +71,7 @@ module Web
       #               See #scheme and #ssl?
       #   :httponly - Prevent JavaScript access (Boolean - true by default)
       #
-      # cookies true
+      cookies true
       # or
       # cookies max_age: 300
 
@@ -81,7 +81,7 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/rack/Rack/Session/Cookie
       #
-       sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
+      sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
 
       # Configure Rack middleware for this application
       #
