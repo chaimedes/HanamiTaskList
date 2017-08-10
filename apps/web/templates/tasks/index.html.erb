@@ -43,11 +43,11 @@
 
   <% # If we got here via signing up, show sign up info. %>
   <% if params[:identifier] %>
-    <p class="new_user_identifier">
+    <div class="new_user_identifier">
       <h2>You're all set up!</h2><br />
       Your new ID is <strong><%= params[:identifier] %>.</strong><br />
       You can now log in.
-    </p>
+    </div>
   <% end %>
 
   <% # Either way, show the log in button. %>
