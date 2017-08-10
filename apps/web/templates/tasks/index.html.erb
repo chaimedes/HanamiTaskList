@@ -1,9 +1,17 @@
-<!-- <h2>All Items</h2> -->
-<% if session[:logged_in] %>
+<% # Show task controls if logged in %>
+
+<% if !session.nil? && session[:logged_in] %>
+<% # if @logged_in %>
+
+  <% # Search bar and button %>
   <%= render partial: 'search_tasks' %>
-  <% if tasks.any? %>
-    <div id="tasks">
-      <%= render partial: 'new_task_button' %>
+
+  <div id="tasks">
+
+    <%= render partial: 'new_task_button' %>
+
+    <% if tasks.any? %>
+   
       <% tasks.each do |task| %>
         <div class="task level-<%= task.importance %>">
           <h3><%= task.title %></h3>
@@ -11,15 +19,29 @@
           <%= render partial: 'delete_task_button', locals: {task: task} %>
         </div>
       <% end %>
-    </div>
-  <% else %>
-    <p class="placeholder">There are currently no tasks. Congratulations!</p>
-  <% end %>
+
+    <% # If there are no tasks, make it known. %>
+    <% else %>
+      <p class="placeholder">There are currently no tasks. Congratulations!</p>
+    <% end %>
+    
+  </div> <!-- End of tasks area -->
+  
+  <% # Log out %>
+  <%= render partial: 'log_out_button' %> 
+
+
+<% # If not logged in, show some info and log in / sign up buttons. %>
 <% else %>
+
+  <% # Don't show generic info if we got here via the "sign up" route. %>
   <% if !params[:identifier] %>
     <h2>Simplicity for the dedicated.</h2>
     <%= render partial: 'user_button' %>
+    <div id="option_separator">or</div>
   <% end %>
+
+  <% # If we got here via signing up, show sign up info. %>
   <% if params[:identifier] %>
     <p class="new_user_identifier">
       <h2>You're all set up!</h2><br />
@@ -27,5 +49,8 @@
       You can now log in.
     </p>
   <% end %>
+
+  <% # Either way, show the log in button. %>
   <%= render partial: 'login_button' %>
+
 <% end %>

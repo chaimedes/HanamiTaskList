@@ -1,16 +1,58 @@
-<!-- <h2>All Items</h2> -->
-<%= render partial: 'search_tasks' %>
-<% if tasks.any? %>
+<% # Show task controls if logged in %>
+
+<% if !session.nil? && session[:logged_in] %>
+<% # if @logged_in %>
+
+  <% # Search bar and button %>
+  <%= render partial: 'search_tasks' %>
+
   <div id="tasks">
+
     <%= render partial: 'new_task_button' %>
-    <% tasks.each do |task| %>
-      <div class="task level-<%= task.importance %>">
-        <h3><%= task.title %></h3>
-        <%= render partial: 'delete_task_button', locals: {task: task} %>
-        <p><%= task.description %></p>
-      </div>
+
+    <% if tasks.any? %>
+   
+      <% tasks.each do |task| %>
+        <div class="task level-<%= task.importance %>">
+          <h3><%= task.title %></h3>
+          <p><%= task.description %></p>
+          <%= render partial: 'delete_task_button', locals: {task: task} %>
+        </div>
+      <% end %>
+
+    <% # If there are no tasks, make it known. %>
+    <% else %>
+      <p class="placeholder">There are currently no tasks. Congratulations!</p>
     <% end %>
-  </div>
+    
+  </div> <!-- End of tasks area -->
+  
+  <% # Reset to all tasks. %>
+  <%= render partial: 'all_tasks_button' %>
+  
+  <% # Log out %>
+  <%= render partial: 'log_out_button' %> 
+
+
+<% # If not logged in, show some info and log in / sign up buttons. %>
 <% else %>
-  <p class="placeholder">There are currently no tasks. Congratulations!</p>
+
+  <% # Don't show generic info if we got here via the "sign up" route. %>
+  <% if !params[:identifier] %>
+    <h2>Simplicity for the dedicated.</h2>
+    <%= render partial: 'user_button' %>
+  <% end %>
+
+  <% # If we got here via signing up, show sign up info. %>
+  <% if params[:identifier] %>
+    <p class="new_user_identifier">
+      <h2>You're all set up!</h2><br />
+      Your new ID is <strong><%= params[:identifier] %>.</strong><br />
+      You can now log in.
+    </p>
+  <% end %>
+
+  <% # Either way, show the log in button. %>
+  <%= render partial: 'login_button' %>
+
 <% end %>

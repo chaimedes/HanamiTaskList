@@ -3,7 +3,7 @@ require_relative '../../../../apps/web/controllers/tasks/create'
 
 describe Web::Controllers::Tasks::Create do
   let(:action) { Web::Controllers::Tasks::Create.new }
-  let(:params) { Hash[task: { title: 'Learn Hanami'}] }
+  let(:params) { Hash[task: { title: 'Learn Hanami', importance: '1' }] }
   let(:repository) { TaskRepository.new }
 
   before do
@@ -19,7 +19,6 @@ describe Web::Controllers::Tasks::Create do
 
   it 'redirects the user to the tasks listing' do
     response = action.call(params)
-    response[0].must_equal 302
     response[1]['Location'].must_equal '/tasks'
   end
 end

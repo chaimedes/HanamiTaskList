@@ -43,7 +43,7 @@ button {
   margin: 0px 0px;
   margin-bottom: 4px;
   color: #222;
-  color: #ccf;
+  color: #cce0ee;
 }
 .task button {
   font-size: 24px;
@@ -73,18 +73,55 @@ button {
 .delete_task button {
   /*vertical-align: calc(10%);*/
 }
-form input[type=text], form input[type=search] {
+form input[type=text], form input[type=search], form input[type=number] {
   color: #333;
+}
+form input {
+  padding: 4px 8px;
+}
+#task-form label {
+  display: block;
+}
+#task-form .input {
+  margin-bottom: 1.5em;
+}
+#task-form .input input {
+  text-align: center;
+}
+#task-title {
+  font-size: 20px;
+}
+#task-description {
+  width: 50ex;
 }
 #task-form input[type=search] {
   padding: 5px;
   width: 25%;
   margin-bottom: 8px
 }
-.search-submit button, #user-form button {
+#all_tasks-form {
+  margin-bottom: 1.8em;
+}
+#user_new-form, #user_login-form {
+  margin-bottom: 1.8em;
+  margin-top: 1.8em;
+  text-align: center;
+  font-size: 16px;
+}
+#user_new-form button, #user_login-form button {
+  padding: 8px 50px; 
+}
+#option_separator {
+  text-align: center;
+  font-size: 22px;
+}
+#user_login-form button {
+  margin-top: 0.5em;
+}
+.search-submit button, #user-form button, #all_tasks-form button {
   padding: 8px 50px;
 }
-#task-form, #user-form {
+#task-form, #user-form, #all_tasks-form {
   text-align: center;
   font-size: 16px;
 }

@@ -1,6 +1,6 @@
 <div class="task level-0">
   <%=
-    form_for :task, routes.new_path, method: :post, include_id: false, class: "new_task", id: "new_task" do
+    form_for :task, routes.new_path, method: :get, include_id: false, class: "new_task", id: "new_task" do
       submit 'New Task'
     end
   %>

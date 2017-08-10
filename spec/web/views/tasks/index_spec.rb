@@ -18,8 +18,8 @@ describe Web::Views::Tasks::Index do
   end
 
   describe 'when there are tasks' do
-    let(:task1) { Task.new(title: 'Learn Hanami') }
-    let(:task2) { Task.new(title: 'Update website') }
+    let(:task1) { Task.new(title: 'Learn Hanami', importance: '1') }
+    let(:task2) { Task.new(title: 'Update website', importance: '2') }
     let(:exposures) { Hash[tasks: [task1, task2]] }
 
     it 'lists them all' do

@@ -8,7 +8,7 @@ describe Web::Controllers::Tasks::Index do
 
   before do
     repository.clear
-    @book = repository.create(title: 'Learn Hanami')
+    @task = repository.create(title: 'Learn Hanami', importance: '1')
   end
 
   it 'is successful' do
@@ -18,6 +18,6 @@ describe Web::Controllers::Tasks::Index do
 
   it 'exposes all tasks' do
     action.call(params)
-    action.exposures[:books].must_equal [@book]
+    action.exposures[:tasks].must_equal [@task]
   end
 end

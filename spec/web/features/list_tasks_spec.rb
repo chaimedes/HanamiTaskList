@@ -3,8 +3,8 @@ describe 'List Tasks' do
   let(:repository) { TaskRepository.new }
   before do
     repository.clear
-    repository.create(title: 'Learn Hanami')
-    repository.create(title: 'Update webasite')
+    repository.create(title: 'Learn Hanami', importance: '1')
+    repository.create(title: 'Update webasite', importance: '2')
   end
   it 'displays each task item on the page' do
     visit '/tasks'

@@ -1,8 +1,7 @@
 <%=
-  form_for :user, routes.login_path, method: :post do
+  form_for :user_login, routes.login_path, method: :post do
     div class: 'input' do
-      label :identifier
-      text_field :identifier
+      text_field :identifier, placeholder: "Identifier"
     end
 
     div class: 'controls' do
